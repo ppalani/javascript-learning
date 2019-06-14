@@ -1,3 +1,6 @@
+
+console.log('functions as expression and statements....')
+
 console.log('hello');
 
 
@@ -36,6 +39,10 @@ function greet ()
 //anonymousgreet();
 //callling it before the declaration results in Uncaught TypeError: anonymousgreet is not a function
 
+// as it will be just an variable with default value undefined, which is not an object Yet...only the variable name is hoisted...
+// during the executuion phase, it creates the object
+
+
 
 var anonymousgreet = function  (){
     console.log('hi from function expression');
@@ -44,12 +51,30 @@ var anonymousgreet = function  (){
 anonymousgreet();
 ////hi from function expression
 
+function log (a){
+    console.log(a)
+};
 
+log(2);
 
+log("hello as a text argument");
 
+///passing a function as an argument......
+///prints the function body.....
+log(function ()
+{
+    console.log('hello');
+});
 
+//////creating a function which acccepts and executes a function....
 
+function logfunction (a){
+    a();
+};
 
-
-
+//////sending a function created on thge fly to the funciton above...whish shall execute this function below...
+logfunction(function ()
+{
+    console.log('hello');
+});
 
